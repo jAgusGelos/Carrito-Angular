@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carrito-Angular-Backend", "Carrito-Angular-Backend.csproj", "{CC760AC9-D8B1-48C1-9123-EAC85E8FE27E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarritoDatos", "..\CarritoDatos\CarritoDatos.csproj", "{87006E4F-12EC-4A99-B046-66EA22153DC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC760AC9-D8B1-48C1-9123-EAC85E8FE27E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC760AC9-D8B1-48C1-9123-EAC85E8FE27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC760AC9-D8B1-48C1-9123-EAC85E8FE27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC760AC9-D8B1-48C1-9123-EAC85E8FE27E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87006E4F-12EC-4A99-B046-66EA22153DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87006E4F-12EC-4A99-B046-66EA22153DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87006E4F-12EC-4A99-B046-66EA22153DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87006E4F-12EC-4A99-B046-66EA22153DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF750642-CE3B-4E9E-8A29-96F36E64F177}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CarritoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="carrito">
+          <Key>
+            <PropertyRef Name="nroFactura" />
+            <PropertyRef Name="nroItem" />
+          </Key>
+          <Property Name="nroFactura" Type="int" Nullable="false" />
+          <Property Name="nroItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codProd" Type="int" Nullable="false" />
+          <Property Name="cantProd" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="facturas">
+          <Key>
+            <PropertyRef Name="nroFactura" />
+          </Key>
+          <Property Name="nroFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="comprado" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productos">
+          <Key>
+            <PropertyRef Name="idArticulo" />
+          </Key>
+          <Property Name="idArticulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="precio" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_carrito_facturas">
+          <End Role="facturas" Type="Self.facturas" Multiplicity="1" />
+          <End Role="carrito" Type="Self.carrito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="facturas">
+              <PropertyRef Name="nroFactura" />
+            </Principal>
+            <Dependent Role="carrito">
+              <PropertyRef Name="nroFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_carrito_productos">
+          <End Role="productos" Type="Self.productos" Multiplicity="1" />
+          <End Role="carrito" Type="Self.carrito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="idArticulo" />
+            </Principal>
+            <Dependent Role="carrito">
+              <PropertyRef Name="codProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CarritoModelStoreContainer">
+          <EntitySet Name="carrito" EntityType="Self.carrito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="facturas" EntityType="Self.facturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productos" EntityType="Self.productos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_carrito_facturas" Association="Self.FK_carrito_facturas">
+            <End Role="facturas" EntitySet="facturas" />
+            <End Role="carrito" EntitySet="carrito" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carrito_productos" Association="Self.FK_carrito_productos">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="carrito" EntitySet="carrito" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CarritoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CarritoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="carrito" EntityType="CarritoModel.carrito" />
+          <EntitySet Name="facturas" EntityType="CarritoModel.facturas" />
+          <EntitySet Name="productos" EntityType="CarritoModel.productos" />
+          <AssociationSet Name="FK_carrito_facturas" Association="CarritoModel.FK_carrito_facturas">
+            <End Role="facturas" EntitySet="facturas" />
+            <End Role="carrito" EntitySet="carrito" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carrito_productos" Association="CarritoModel.FK_carrito_productos">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="carrito" EntitySet="carrito" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="carrito">
+          <Key>
+            <PropertyRef Name="nroFactura" />
+            <PropertyRef Name="nroItem" />
+          </Key>
+          <Property Name="nroFactura" Type="Int32" Nullable="false" />
+          <Property Name="nroItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codProd" Type="Int32" Nullable="false" />
+          <Property Name="cantProd" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="facturas" Relationship="CarritoModel.FK_carrito_facturas" FromRole="carrito" ToRole="facturas" />
+          <NavigationProperty Name="productos" Relationship="CarritoModel.FK_carrito_productos" FromRole="carrito" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="facturas">
+          <Key>
+            <PropertyRef Name="nroFactura" />
+          </Key>
+          <Property Name="nroFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="comprado" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="carrito" Relationship="CarritoModel.FK_carrito_facturas" FromRole="facturas" ToRole="carrito" />
+        </EntityType>
+        <EntityType Name="productos">
+          <Key>
+            <PropertyRef Name="idArticulo" />
+          </Key>
+          <Property Name="idArticulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <NavigationProperty Name="carrito" Relationship="CarritoModel.FK_carrito_productos" FromRole="productos" ToRole="carrito" />
+        </EntityType>
+        <Association Name="FK_carrito_facturas">
+          <End Type="CarritoModel.facturas" Role="facturas" Multiplicity="1" />
+          <End Type="CarritoModel.carrito" Role="carrito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="facturas">
+              <PropertyRef Name="nroFactura" />
+            </Principal>
+            <Dependent Role="carrito">
+              <PropertyRef Name="nroFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_carrito_productos">
+          <End Type="CarritoModel.productos" Role="productos" Multiplicity="1" />
+          <End Type="CarritoModel.carrito" Role="carrito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="idArticulo" />
+            </Principal>
+            <Dependent Role="carrito">
+              <PropertyRef Name="codProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CarritoModelStoreContainer" CdmEntityContainer="CarritoEntities">
+          <EntitySetMapping Name="carrito">
+            <EntityTypeMapping TypeName="CarritoModel.carrito">
+              <MappingFragment StoreEntitySet="carrito">
+                <ScalarProperty Name="cantProd" ColumnName="cantProd" />
+                <ScalarProperty Name="codProd" ColumnName="codProd" />
+                <ScalarProperty Name="nroItem" ColumnName="nroItem" />
+                <ScalarProperty Name="nroFactura" ColumnName="nroFactura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="facturas">
+            <EntityTypeMapping TypeName="CarritoModel.facturas">
+              <MappingFragment StoreEntitySet="facturas">
+                <ScalarProperty Name="comprado" ColumnName="comprado" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="nroFactura" ColumnName="nroFactura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productos">
+            <EntityTypeMapping TypeName="CarritoModel.productos">
+              <MappingFragment StoreEntitySet="productos">
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idArticulo" ColumnName="idArticulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
