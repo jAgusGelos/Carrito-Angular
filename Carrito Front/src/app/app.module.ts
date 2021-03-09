@@ -7,18 +7,21 @@ import {RouterModule} from '@angular/router';
 import { routing } from './app.routing';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { CarritoComponent } from './components/carrito/carrito.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductosComponent,
+    CarritoComponent,
     
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
     
     routing
   ],

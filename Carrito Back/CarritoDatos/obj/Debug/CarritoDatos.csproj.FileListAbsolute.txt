@@ -5,8 +5,8 @@ D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\CarritoDatos\bi
 D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\CarritoDatos\bin\Debug\EntityFramework.SqlServer.dll
 D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\CarritoDatos\bin\Debug\EntityFramework.xml
 D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\CarritoDatos\bin\Debug\EntityFramework.SqlServer.xml
-D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\CarritoDatos\obj\Debug\CarritoDatos.csprojAssemblyReference.cache
 D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\CarritoDatos\obj\Debug\CarritoDatos.csproj.CoreCompileInputs.cache
 D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\CarritoDatos\obj\Debug\CarritoDatos.csproj.CopyComplete
 D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\CarritoDatos\obj\Debug\CarritoDatos.dll
 D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\CarritoDatos\obj\Debug\CarritoDatos.pdb
+D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\CarritoDatos\obj\Debug\CarritoDatos.csprojAssemblyReference.cache

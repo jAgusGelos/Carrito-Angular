@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbCompleta.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="carrito">
+    <Key>
+      <PropertyRef Name="nroFactura" />
+      <PropertyRef Name="nroItem" />
+    </Key>
+    <Property Name="nroFactura" Type="int" Nullable="false" />
+    <Property Name="nroItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codProd" Type="int" Nullable="false" />
+    <Property Name="cantProd" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="facturas">
+    <Key>
+      <PropertyRef Name="nroFactura" />
+    </Key>
+    <Property Name="nroFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="comprado" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productos">
+    <Key>
+      <PropertyRef Name="idArticulo" />
+    </Key>
+    <Property Name="idArticulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="precio" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_carrito_facturas">
+    <End Role="facturas" Type="Self.facturas" Multiplicity="1" />
+    <End Role="carrito" Type="Self.carrito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="facturas">
+        <PropertyRef Name="nroFactura" />
+      </Principal>
+      <Dependent Role="carrito">
+        <PropertyRef Name="nroFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_carrito_productos">
+    <End Role="productos" Type="Self.productos" Multiplicity="1" />
+    <End Role="carrito" Type="Self.carrito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productos">
+        <PropertyRef Name="idArticulo" />
+      </Principal>
+      <Dependent Role="carrito">
+        <PropertyRef Name="codProd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbCompletaStoreContainer">
+    <EntitySet Name="carrito" EntityType="Self.carrito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="facturas" EntityType="Self.facturas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productos" EntityType="Self.productos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_carrito_facturas" Association="Self.FK_carrito_facturas">
+      <End Role="facturas" EntitySet="facturas" />
+      <End Role="carrito" EntitySet="carrito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_carrito_productos" Association="Self.FK_carrito_productos">
+      <End Role="productos" EntitySet="productos" />
+      <End Role="carrito" EntitySet="carrito" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

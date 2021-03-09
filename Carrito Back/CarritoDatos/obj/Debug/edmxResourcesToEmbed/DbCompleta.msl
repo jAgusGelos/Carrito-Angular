@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbCompletaStoreContainer" CdmEntityContainer="FullDB">
+    <EntitySetMapping Name="carrito">
+      <EntityTypeMapping TypeName="dbCompleta.carrito">
+        <MappingFragment StoreEntitySet="carrito">
+          <ScalarProperty Name="nroFactura" ColumnName="nroFactura" />
+          <ScalarProperty Name="nroItem" ColumnName="nroItem" />
+          <ScalarProperty Name="codProd" ColumnName="codProd" />
+          <ScalarProperty Name="cantProd" ColumnName="cantProd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="facturas">
+      <EntityTypeMapping TypeName="dbCompleta.facturas">
+        <MappingFragment StoreEntitySet="facturas">
+          <ScalarProperty Name="nroFactura" ColumnName="nroFactura" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="comprado" ColumnName="comprado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos">
+      <EntityTypeMapping TypeName="dbCompleta.productos">
+        <MappingFragment StoreEntitySet="productos">
+          <ScalarProperty Name="idArticulo" ColumnName="idArticulo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
