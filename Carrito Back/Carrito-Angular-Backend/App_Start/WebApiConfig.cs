@@ -21,8 +21,8 @@ namespace Carrito_Angular_Backend
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{id}/{nroFactura}",
+                defaults: new { id = RouteParameter.Optional, nroFactura = RouteParameter.Optional}
             );
         }
     }

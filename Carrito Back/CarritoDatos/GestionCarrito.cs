@@ -56,5 +56,22 @@ namespace CarritoDatos
 
         }
 
+        public static void Grabar(carrito value)
+        {
+            try
+            {
+                using (CarritoEntities db = new CarritoEntities())
+                {
+                    db.Entry(value).State = System.Data.Entity.EntityState.Added;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException("Error al grabar: " + value.ToString());
+            }
+
+        }
     }
 }
+

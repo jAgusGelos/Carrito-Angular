@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpErrorResponse, HttpParams} from '@angular/common/http';
-import { ItemCarrito } from '../models/carrito';
+import { Cart, ItemCarrito } from '../models/carrito';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,11 @@ export class CarritoService {
   }
 
   delete(NroFactura: number, NroItem: number){
-    return this.httpClient.delete<void>(`https://localhost:44309/api/carrito?NroFactura=${NroFactura}&NroItem=${NroItem}`)
+    return this.httpClient.delete(`https://localhost:44309/api/carrito/`+NroItem+`/`+NroFactura)
+  }
+
+  post(cart: Cart){
+    return this.httpClient.post(`https://localhost:44309/api/carrito/`,cart)
   }
 
 }

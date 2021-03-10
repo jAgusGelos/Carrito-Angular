@@ -7,3 +7,10 @@ export class ItemCarrito{
     NroItem : number;
     NroFactura: number;
 }
+
+export class Cart{
+    NroItem : number;
+    NroFactura: number;
+    codProd: number;
+    cantProd: number;
+}

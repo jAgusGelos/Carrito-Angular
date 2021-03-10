@@ -18,8 +18,8 @@
             <td>{{producto.nombre}}</td>
             <td>{{producto.descripcion}}</td>
             <td>$ {{producto.precio}}</td>
-            <td><input type="number" class='text-center' id="cant-${x.id}" min="1" max="100"></td>
-            <td> <a href="#" class='agregarProducto'> <i class="fas fa-plus"></i></a></td>
+            <td><input type="number" class='text-center' id="cant-{{producto.idArticulo}}" min="1" max="100"></td>
+            <td> <a (click)='agregarProducto(producto)'> <i class="fas fa-plus"></i></a></td>
             <td></td>
           </tr>
 

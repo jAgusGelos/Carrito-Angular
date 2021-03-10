@@ -10,6 +10,53 @@ namespace Carrito_Angular_Backend.Controllers
 {
     public class CarritoController : ApiController
     {
+        [System.Web.Http.AcceptVerbs("DELETE")]
+        [System.Web.Http.HttpGet] 
+        public HttpResponseMessage Delete(int id)
+        {
+            HttpResponseMessage msg;
+            try
+            {
+                GestionCarrito.eliminarItem(2, id);
+                msg = Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception e)
+            {
+                msg = Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e.Message);
+
+            }
+
+            return msg;
+
+
+
+
+        }
+
+        [System.Web.Http.AcceptVerbs("DELETE")]
+        [System.Web.Http.HttpGet]
+        public HttpResponseMessage Delete(int id, int fc)
+        {
+            HttpResponseMessage msg;
+            try
+            {
+                GestionCarrito.eliminarItem(fc, id);
+                msg = Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception e)
+            {
+                msg = Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e.Message);
+
+            }
+
+            return msg;
+
+
+
+
+        }
+
+        [System.Web.Http.AcceptVerbs("GET")]
 
         // GET: api/Carrito
         public IHttpActionResult Get()
@@ -24,20 +71,20 @@ namespace Carrito_Angular_Backend.Controllers
         }
 
         // POST: api/Carrito
-        public void Post([FromBody]string value)
+        [System.Web.Http.AcceptVerbs("POST")]
+        public void Post([FromBody] carrito value)
         {
+            GestionCarrito.Grabar(value);
         }
 
         // PUT: api/Carrito/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/Carrito/5
-        public void Delete(int nroFactura, int nroItem)
-        {
-            GestionCarrito.eliminarItem(nroFactura, nroItem);
+       
 
-        }
-    }
+
+    } 
 }
