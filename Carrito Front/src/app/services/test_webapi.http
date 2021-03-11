@@ -5,3 +5,17 @@ https://localhost:44309/api/Carrito
 delete https://localhost:44309/api/Carrito/4/2
 
 ###
+
+post https://localhost:44309/api/login/authenticate
+Content-Type: application/json
+
+{
+    "Username": "admin",
+    "Password": "123456",
+}
+
+###
+get https://localhost:44309/api/customers
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwibmJmIjoxNjE1NDk2NzMxLCJleHAiOjE2MTU1MDAzMzEsImlhdCI6MTYxNTQ5NjczMSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0OTIyMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDkyMjAifQ.H7Tr8f4eEjpYjfECcPsKa4tgxahCi8G6SHOJ6Ft8YBU
+

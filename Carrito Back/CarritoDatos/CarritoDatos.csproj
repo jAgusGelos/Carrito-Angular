@@ -73,10 +73,15 @@
       <DependentUpon>CarritoModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="clientes.cs">
+      <DependentUpon>ModeloClientes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clienteToken.cs" />
     <Compile Include="facturas.cs">
       <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="GestionCarrito.cs" />
+    <Compile Include="GestionClientes.cs" />
     <Compile Include="GestionProductos.cs" />
     <Compile Include="ModeloCarrito.Context.cs">
       <AutoGen>True</AutoGen>
@@ -92,6 +97,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloCarrito.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloClientes.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloClientes.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloClientes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloClientes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloClientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloClientes.edmx</DependentUpon>
     </Compile>
     <Compile Include="ModeloCompleto.Context.cs">
       <AutoGen>True</AutoGen>
@@ -152,6 +172,13 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloCompleto.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="ModeloClientes.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloClientes.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModeloClientes.edmx.diagram">
+      <DependentUpon>ModeloClientes.edmx</DependentUpon>
+    </None>
     <None Include="ModeloCompleto.edmx.diagram">
       <DependentUpon>ModeloCompleto.edmx</DependentUpon>
     </None>
@@ -180,6 +207,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModeloCarrito.edmx</DependentUpon>
       <LastGenOutput>ModeloCarrito.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModeloClientes.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloClientes.edmx</DependentUpon>
+      <LastGenOutput>ModeloClientes.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModeloClientes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloClientes.edmx</DependentUpon>
+      <LastGenOutput>ModeloClientes.cs</LastGenOutput>
     </Content>
     <Content Include="ModeloCompleto.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

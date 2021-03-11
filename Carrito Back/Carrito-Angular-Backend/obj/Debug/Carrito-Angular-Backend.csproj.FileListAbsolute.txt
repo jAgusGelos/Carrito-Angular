@@ -78,3 +78,11 @@ D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular
 D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\obj\Debug\Carrito-Angular-Backend.csproj.CopyComplete
 D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\obj\Debug\Carrito-Angular-Backend.dll
 D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\obj\Debug\Carrito-Angular-Backend.pdb
+D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\bin\Microsoft.IdentityModel.Logging.dll
+D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\bin\Microsoft.IdentityModel.Tokens.dll
+D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\bin\Microsoft.IdentityModel.Logging.xml
+D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\bin\Microsoft.IdentityModel.Tokens.xml
+D:\Mis Domumentos\Desktop\Proyectos\Carrito Angular\Carrito Back\Carrito-Angular-Backend\bin\System.IdentityModel.Tokens.Jwt.xml
