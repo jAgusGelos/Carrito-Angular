@@ -57,7 +57,7 @@ namespace Carrito_Angular_Backend.Controllers
         }
 
         [System.Web.Http.AcceptVerbs("GET")]
-
+        
         // GET: api/Carrito
         public IHttpActionResult Get()
         {

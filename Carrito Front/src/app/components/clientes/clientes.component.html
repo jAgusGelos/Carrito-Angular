@@ -1,0 +1,26 @@
+<div class="jumbotron jumbotron-fluid centrado">
+  <div class="container">
+    <div class="card text-left">
+
+      <div class="card-body">
+        <h1 class="h3 mb-3 fw-normal text-center">Iniciar Sesión</h1>
+        <form name='formLogin' [formGroup]='formLogin'>
+          <label for="inputEmail"  class="visually-hidden">Email:</label>
+          <input type="email" formControlName='email' id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+          <br>
+          <label for="inputPassword" class="visually-hidden">Password:</label>
+          <input type="password" formControlName='password' id="inputPassword" class="form-control" placeholder="Contraseña" required>
+          <br>
+          <div class="text-center">
+            <button class="w-100 btn btn-lg btn-primary" type="submit" (click)='login()'>Iniciar Sesión</button>
+            <br>
+            <a href="#" class="centrado">¿Aún no tienes cuenta? Registrarme</a>
+
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
