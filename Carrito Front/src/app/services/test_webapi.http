@@ -1,5 +1,5 @@
 https://localhost:44309/api/Carrito
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Imp1YW5hZ3VzdGluZ2Vsb3NAZ21haWwuY29tIiwibmJmIjoxNjE1NTYyMjkzLCJleHAiOjE2MTU1NjU4OTMsImlhdCI6MTYxNTU2MjI5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0OTIyMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDkyMjAifQ.BeyX92HMs5JWRxs1ctCamZxJ5M-qwvZZ6NLpF7EyJhw
 ### 
 
 delete https://localhost:44309/api/Carrito/4/2
@@ -10,12 +10,13 @@ post https://localhost:44309/api/login/authenticate
 Content-Type: application/json
 
 {
-    "Username": "admin",
+    "Username": "juanagustingelos@gmail.com",
     "Password": "123456",
 }
 
 ###
 get https://localhost:44309/api/customers
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwibmJmIjoxNjE1NDk2NzMxLCJleHAiOjE2MTU1MDAzMzEsImlhdCI6MTYxNTQ5NjczMSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0OTIyMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDkyMjAifQ.H7Tr8f4eEjpYjfECcPsKa4tgxahCi8G6SHOJ6Ft8YBU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Imp1YW5hZ3VzdGluZ2Vsb3NAZ21haWwuY29tIiwibmJmIjoxNjE1NTYyMjkzLCJleHAiOjE2MTU1NjU4OTMsImlhdCI6MTYxNTU2MjI5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0OTIyMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDkyMjAifQ.BeyX92HMs5JWRxs1ctCamZxJ5M-qwvZZ6NLpF7EyJhw
 
+###

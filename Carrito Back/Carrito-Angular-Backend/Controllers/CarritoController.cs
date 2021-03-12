@@ -8,6 +8,7 @@ using CarritoDatos;
 
 namespace Carrito_Angular_Backend.Controllers
 {
+    [Authorize]
     public class CarritoController : ApiController
     {
         [System.Web.Http.AcceptVerbs("DELETE")]
