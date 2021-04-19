@@ -26,6 +26,8 @@ import { BibliografiaComponent } from './components/bibliografia/bibliografia.co
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    
     
     routing
   ],

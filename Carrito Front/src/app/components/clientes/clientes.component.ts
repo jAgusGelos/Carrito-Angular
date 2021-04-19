@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ClientesComponent implements OnInit {
 
-  formLogin: FormGroup;
+  FormLogin: FormGroup;
   usuario: IUserInfo;
 
   constructor(
@@ -24,20 +24,20 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.formLogin = this.formBuilder.group({
+    this.FormLogin = this.formBuilder.group({
       email: ['', [Validators.required, Validators.maxLength(250), Validators.email]],
       password: ['', [Validators.required]]
     })
   }
 
   login() {
-    if (this.formLogin.invalid) {
+    if (this.FormLogin.invalid) {
       window.alert("Complete los campos");
       return;
     }
     this.usuario = new IUserInfo;
-    this.usuario.UserName = this.formLogin.value.email;
-    this.usuario.Password = this.formLogin.value.password;    
+    this.usuario.UserName = this.FormLogin.value.email;
+    this.usuario.Password = this.FormLogin.value.password;    
 
     this.authService.login(this.usuario).subscribe(token => this.recibirToken(token),
     error => this.manejarError(error));
