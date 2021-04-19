@@ -18,10 +18,7 @@ import { BibliografiaComponent } from './components/bibliografia/bibliografia.co
 @NgModule({
   declarations: [
     AppComponent,
-    ProductosComponent,
-
-
-    BibliografiaComponent,
+      BibliografiaComponent,
     
   ],
   imports: [
