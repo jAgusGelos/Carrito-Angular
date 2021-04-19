@@ -40,22 +40,15 @@ export class ClientesComponent implements OnInit {
     console.log(this.usuario)
     //this.authService.login(this.usuario).subscribe(token => this.recibirToken(token),
     //error => this.manejarError(error));
-    this.authService.login(this.usuario).subscribe(token => console.log(token))
-
-  }
-
-  recibirToken(token) {
+    this.authService.login(this.usuario).subscribe( (data: any) =>{ 
+      this.authService.setToken(data.token)
+      this.router.navigateByUrl('productos')
     
-    localStorage.setItem('token', token.token);
-    localStorage.setItem('tokenExpiration', token.expiration);
-    this.router.navigate([""]);
+    })
+
   }
 
-  manejarError(error) {
-    if (error && error.error) {
-      alert(error.error[""]);
-    }
-  }
+ 
 
 
 

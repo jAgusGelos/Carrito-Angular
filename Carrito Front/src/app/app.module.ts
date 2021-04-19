@@ -14,6 +14,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AccountService } from './services/account.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { BibliografiaComponent } from './components/bibliografia/bibliografia.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { BibliografiaComponent } from './components/bibliografia/bibliografia.co
     
     routing
   ],
-  providers: [AuthGuardService, AccountService,],
+  providers: [AuthGuardService, CookieService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
