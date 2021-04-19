@@ -19,8 +19,8 @@ import { BibliografiaComponent } from './components/bibliografia/bibliografia.co
   declarations: [
     AppComponent,
     ProductosComponent,
-    CarritoComponent,
-    ClientesComponent,
+
+
     BibliografiaComponent,
     
   ],
