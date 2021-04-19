@@ -1,14 +1,18 @@
 import { RouterModule, Routes } from '@angular/router';
-import { ProductosComponent } from './components/productos/productos.component';
-import { AppComponent } from './app.component';
-import { CarritoComponent } from './components/carrito/carrito.component';
-import { ClientesComponent } from './components/clientes/clientes.component';
-import { AuthGuardService } from './services/auth-guard.service';
 
-const appRoutes = [
-    { path: 'productos', component: ProductosComponent,  pathMatch: 'full'},
-    { path: 'carrito', component: CarritoComponent, canActivate: [AuthGuardService], pathMatch: 'full'},
-    { path: 'clientes', component: ClientesComponent,  pathMatch: 'full'}
-  ];
 
-  export const routing = RouterModule.forRoot(appRoutes);
+const appRoutes: Routes = [
+  {
+    path: 'productos',
+    loadChildren: () => import('./components/productos/productos.component').then(m => m.ProductosComponent)
+  },
+  { path: 'clientes', loadChildren: () => import('./components/clientes/clientes.component').then(m => m.ClientesComponent) },
+  { path: 'carrito', loadChildren: () => import('./components/carrito/carrito.component').then(m => m.CarritoComponent) },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
+];
+
+export const routing = RouterModule.forRoot(appRoutes);
