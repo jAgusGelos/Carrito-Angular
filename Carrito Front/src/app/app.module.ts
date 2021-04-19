@@ -15,11 +15,13 @@ import { AccountService } from './services/account.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { BibliografiaComponent } from './components/bibliografia/bibliografia.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
       BibliografiaComponent,
+
     
   ],
   imports: [
@@ -28,11 +30,12 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+   
     
     
     routing
   ],
-  providers: [AuthGuardService, CookieService,],
+  providers: [AuthGuardService, CookieService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
