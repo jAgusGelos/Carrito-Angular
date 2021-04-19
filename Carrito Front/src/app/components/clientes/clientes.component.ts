@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUserInfo } from 'src/app/models/IUserInfo';
-import { AccountService } from 'src/app/services/account.service';
-import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -18,7 +16,7 @@ export class ClientesComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AccountService,
+    private authService: AuthService,
     private router: Router,
   ) { }
 
@@ -36,16 +34,18 @@ export class ClientesComponent implements OnInit {
       return;
     }
     this.usuario = new IUserInfo;
-    this.usuario.UserName = this.FormLogin.value.email;
-    this.usuario.Password = this.FormLogin.value.password;    
+    this.usuario.email = this.FormLogin.value.email;    
+    this.usuario.password = this.FormLogin.value.password;    
 
-    this.authService.login(this.usuario).subscribe(token => this.recibirToken(token),
-    error => this.manejarError(error));
-
+    console.log(this.usuario)
+    //this.authService.login(this.usuario).subscribe(token => this.recibirToken(token),
+    //error => this.manejarError(error));
+    this.authService.login(this.usuario).subscribe(token => console.log(token))
 
   }
 
   recibirToken(token) {
+    
     localStorage.setItem('token', token.token);
     localStorage.setItem('tokenExpiration', token.expiration);
     this.router.navigate([""]);

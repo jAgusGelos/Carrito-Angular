@@ -1,4 +1,4 @@
 export class IUserInfo{
-    UserName:string;
-    Password: string;
+    email:string;
+    password: string;
 }
