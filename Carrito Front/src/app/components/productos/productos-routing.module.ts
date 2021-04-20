@@ -9,7 +9,8 @@ const routes: Routes = [
   {
     path: '',
     component: ProductosComponent
-  }
+  },
+  { path: 'prodCreation', loadChildren: () => import('./prod-creation/prod-creation.module').then(m => m.ProdCreationModule) }
 ];
 
 @NgModule({

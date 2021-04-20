@@ -34,7 +34,7 @@ export class ProdCreationComponent implements OnInit {
   }
 
 
-  guardar(){
+  saveProduct(){
     if(this.FormReg.invalid){
       window.alert("Complete los campos");
       return;
@@ -53,7 +53,7 @@ export class ProdCreationComponent implements OnInit {
   }
 
   volver(){
-    //ir a tabla.
+    //ir a tabla. backtoprevious route
   }
 
 
