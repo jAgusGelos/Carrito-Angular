@@ -23,7 +23,7 @@ export class AuthService {
   }
   
   setToken(token: string){
-    this.cookies.set('token', token);
+    this.cookies.set('token', token, {expires: 0.1});
   }
   getToken(){
     return this.cookies.get('token')

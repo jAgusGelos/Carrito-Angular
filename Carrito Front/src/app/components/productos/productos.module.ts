@@ -13,6 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [ProductosComponent]
+  declarations: [ProductosComponent] //aca van los comp //agregar array exports
 })
-export class ProductosModule { }
+export class ProductosModule { } 
