@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-table [columnsName]='names'></app-table>
-<app-table-output (agregarProducto)='showId(1)'></app-table-output>
+<app-table [columnsName]='names' (newItemEvent)='showId($event)'></app-table>
+
 
 <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block" routerLink='prodCreation'>Agregar Nuevo Producto</button>

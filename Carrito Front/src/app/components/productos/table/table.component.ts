@@ -31,8 +31,8 @@ export class TableComponent implements OnInit {
   }
 
   getProductos(){
-    this.productosService.get().subscribe((res: any[]) =>  this.Items = res );
-    console.log(this.Items[0].id)
+    this.productosService.get().subscribe((res: any[]) =>  this.Items = res );    
+    // cambiar de lugar
 
   }
 
@@ -45,25 +45,27 @@ export class TableComponent implements OnInit {
       return;
       
     }
-
+    
     let value = producto.id;  
-    this.newItemEvent.emit(value)
+    this.newItemEvent.emit(value);
+    console.log('Llego 1')
          
 
 
    
 
-    // this.cart = new Cart();
-    // this.cart.NroFactura = 2;
-    // this.cart.NroItem = 0;
-    // this.cart.codProd = producto.idArticulo;      
-    // this.cart.cantProd =parseInt($(cant).val().toString());
-    // console.log(this.cart);
-    // this.carritoService.post(this.cart).subscribe();
-    // alert('Se ha cargado el articulo correctamente.');
+    this.cart = new Cart();
+    this.cart.NroFactura = 2;
+    this.cart.NroItem = 0;
+    this.cart.codProd = producto.idArticulo;      
+    this.cart.cantProd =parseInt($(cant).val().toString());
+    console.log(this.cart);
+    this.carritoService.post(this.cart).subscribe();
+    alert('Se ha cargado el articulo correctamente.');    
 
-    // disparar evento al prod-component que haga un console log
-    
+  }
 
+  addButtonClicked(item: any){
+    this.newItemEvent.emit(item);
   }
 }

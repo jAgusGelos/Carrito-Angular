@@ -9,7 +9,7 @@ import { Component,  OnInit } from '@angular/core';
 export class ProductosComponent implements OnInit {
 
   
-  names = ["id","name","year","color","panetone_value"];
+  names = ["id","name","year","color","pantone_value"];
 
 
  
@@ -27,6 +27,8 @@ export class ProductosComponent implements OnInit {
   }
 
   showId(item: any){
+    console.log('Llego')
+    console.log(item)
 
   }
 

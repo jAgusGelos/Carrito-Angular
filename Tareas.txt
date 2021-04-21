@@ -6,3 +6,9 @@ proct header
 
 
 Camelcase - kebabCase - SnakeCase
+
+
+
+21/04
+
+Get Tiene que ir desde el parent con @input
