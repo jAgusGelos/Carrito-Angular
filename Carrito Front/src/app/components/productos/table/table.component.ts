@@ -12,60 +12,43 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class TableComponent implements OnInit {
 
-  @Input() columnsName: string [];
-  @Output() newItemEvent = new EventEmitter<string>();
+  @Input() columnsName: string[];
+  @Input() columnsValue: any[];
+  @Output() addItemEvent = new EventEmitter<any>();
+  @Output() deleteItemEvent = new EventEmitter<any>();
 
-  Items: any[];
-  EstadoForm: string;
-  Prod: Producto;
-  cart: Cart;
+
+
 
   constructor(
-    private productosService: ProductosService,
-    private carritoService: CarritoService,
-    ) { }
 
-  ngOnInit(): void {   
-    this.getProductos();
-    
-  }
 
-  getProductos(){
-    this.productosService.get().subscribe((res: any[]) =>  this.Items = res );    
-    // cambiar de lugar
+  ) { }
+
+  ngOnInit(): void {
+
 
   }
 
 
-  agregarProducto(producto: any){
-    let cant = document.getElementById('cant-'+ producto.idArticulo);
-    console.log($(cant).val().toString());
-    if($(cant).val().toString() == ''){
-      alert("Ingrese una cantidad")
+
+  addButtonClicked(item: any, quant: number) {
+
+ 
+    console.log(quant);
+    if (quant == 0) {
+      alert("Ingrese una cantidad");
       return;
-      
+
     }
-    
-    let value = producto.id;  
-    this.newItemEvent.emit(value);
-    console.log('Llego 1')
-         
 
-
-   
-
-    this.cart = new Cart();
-    this.cart.NroFactura = 2;
-    this.cart.NroItem = 0;
-    this.cart.codProd = producto.idArticulo;      
-    this.cart.cantProd =parseInt($(cant).val().toString());
-    console.log(this.cart);
-    this.carritoService.post(this.cart).subscribe();
-    alert('Se ha cargado el articulo correctamente.');    
-
+    let params = [item, quant];
+    this.addItemEvent.emit(params);
   }
 
-  addButtonClicked(item: any){
-    this.newItemEvent.emit(item);
+  trashButtonClicked(item: any) {
+    if (confirm("Está seguro que desea borrar?")) {
+      this.deleteItemEvent.emit(item);
+    }
   }
 }

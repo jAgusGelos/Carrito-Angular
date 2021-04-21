@@ -4,19 +4,23 @@
       <thead>
         <h5>Tabla</h5>
         <tr>      
-          <th *ngFor='let name of columnsName'>{{name | titlecase }}</th>
+          <th *ngFor='let name of columnsName'>{{ name | titlecase }}</th>
           <th>Cantidad</th>  
           <th>Agregar</th>          
         </tr>
       </thead>
       <tbody id="tablaProductos">
-        <tr *ngFor='let item of Items'>          
+        <tr *ngFor='let item of columnsValue'>          
           <td *ngFor='let name of columnsName'>{{item[name]}}</td>
           <!-- <td>{{producto.nombre}}</td>
           <td>{{producto.descripcion}}</td>
           <td>$ {{producto.precio}}</td> -->
-          <td><input type="number" class='text-center' id="cant-{{item.id}}" min="1" max="100"></td> 
-          <td> <a (click)='agregarProducto(item)'> <i class="fas fa-plus"></i></a></td>
+          <td><input type="number" class='text-center' #quant min="1" max="100"></td> 
+          <td> 
+            <a (click)='addButtonClicked(item,quant.value)'> <i class="fas fa-plus"></i></a>
+            &nbsp;            
+            <a (click)='trashButtonClicked(item)'> <i class="fas fa-trash"></i></a>
+          </td>
           <td></td>
         </tr>
 

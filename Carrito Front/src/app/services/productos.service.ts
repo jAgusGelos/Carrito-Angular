@@ -21,4 +21,8 @@ export class ProductosService {
     return this.httpClient.post('https://localhost:44309/api/productos',obj)
   }
 
+  delete(obj: Producto){
+    return this.httpClient.delete('https://localhost:44309/api/productos/' +  obj.idArticulo)
+  }
+
 }
