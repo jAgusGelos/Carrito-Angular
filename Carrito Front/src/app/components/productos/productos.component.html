@@ -1,4 +1,5 @@
 <app-header></app-header>
-<app-table></app-table>
+<app-table [columnsName]='names'></app-table>
+<app-table-output (agregarProducto)='showId(1)'></app-table-output>
 
 <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block" routerLink='prodCreation'>Agregar Nuevo Producto</button>

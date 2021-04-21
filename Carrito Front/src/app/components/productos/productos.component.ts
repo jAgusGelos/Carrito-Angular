@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 
 
 @Component({
@@ -8,22 +8,25 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductosComponent implements OnInit {
 
-  @Input() columnsName: string [];
+  
+  names = ["id","name","year","color","panetone_value"];
 
 
-  EstadoForm: string;
+ 
  
 
   constructor(
 
     ) { }
 
-  ngOnInit(): void {
-
-    this.EstadoForm = "L"
+  ngOnInit(): void { 
     
 
 
+
+  }
+
+  showId(item: any){
 
   }
 

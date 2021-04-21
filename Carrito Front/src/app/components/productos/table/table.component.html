@@ -3,20 +3,18 @@
     <table class="table text-center ">
       <thead>
         <h5>Tabla</h5>
-        <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Precio</th>
-          <th>Cantidad</th>
-          <th>Acciones</th>
+        <tr>      
+          <th *ngFor='let name of columnsName'>{{name | titlecase }}</th>
+          <th>Agregar</th>          
         </tr>
       </thead>
       <tbody id="tablaProductos">
-        <tr *ngFor='let producto of Items'>
-          <td>{{producto.nombre}}</td>
+        <tr *ngFor='let item of Items'>          
+          <td *ngFor='let name of columnsName'>({{item}}.{{name}})</td>
+          <!-- <td>{{producto.nombre}}</td>
           <td>{{producto.descripcion}}</td>
           <td>$ {{producto.precio}}</td>
-          <td><input type="number" class='text-center' id="cant-{{producto.idArticulo}}" min="1" max="100"></td>
+          <td><input type="number" class='text-center' id="cant-{{producto.idArticulo}}" min="1" max="100"></td> -->
           <td> <a (click)='agregarProducto(producto)'> <i class="fas fa-plus"></i></a></td>
           <td></td>
         </tr>
