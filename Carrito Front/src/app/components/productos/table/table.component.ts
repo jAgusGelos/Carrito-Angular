@@ -11,7 +11,7 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class TableComponent implements OnInit {
 
-  Items: Producto[] = [];
+  Items: any[];
   EstadoForm: string;
   Prod: Producto;
   cart: Cart;
@@ -26,7 +26,7 @@ export class TableComponent implements OnInit {
   }
 
   getProductos(){
-    this.productosService.get().subscribe((res: Producto[]) =>  this.Items = res );
+    this.productosService.get().subscribe((res: any[]) =>  this.Items = res );
 
   }
 
@@ -46,7 +46,9 @@ export class TableComponent implements OnInit {
     this.cart.cantProd =parseInt($(cant).val().toString());
     console.log(this.cart);
     this.carritoService.post(this.cart).subscribe();
-    alert('Se ha cargado el articulo correctamente.')
+    alert('Se ha cargado el articulo correctamente.');
+
+    // disparar evento al prod-component que haga un console log
     
 
   }

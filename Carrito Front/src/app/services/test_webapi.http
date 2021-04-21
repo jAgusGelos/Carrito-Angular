@@ -20,3 +20,5 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Imp1YW5hZ3VzdGluZ2Vsb3NAZ21haWwuY29tIiwibmJmIjoxNjE1NTYyMjkzLCJleHAiOjE2MTU1NjU4OTMsImlhdCI6MTYxNTU2MjI5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0OTIyMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDkyMjAifQ.BeyX92HMs5JWRxs1ctCamZxJ5M-qwvZZ6NLpF7EyJhw
 
 ###
+
+get https://localhost:44309/api/productos

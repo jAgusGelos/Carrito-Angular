@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace Carrito_Angular_Backend.Controllers
 {
-    [AllowAnonymous]
+   
     [RoutePrefix("api/login")]
     public class LoginController : ApiController
     {

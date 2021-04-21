@@ -10,7 +10,8 @@ namespace Carrito_Angular_Backend
 {
     public static class WebApiConfig
     {
-      
+
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de API web

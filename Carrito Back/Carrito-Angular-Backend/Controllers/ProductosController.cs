@@ -4,10 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using CarritoDatos;
 
 namespace Carrito_Angular_Backend.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductosController : ApiController
     {
         // GET: api/Productos

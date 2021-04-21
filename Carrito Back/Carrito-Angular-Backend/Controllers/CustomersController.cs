@@ -8,7 +8,7 @@ using CarritoDatos;
 
 namespace Carrito_Angular_Backend.Controllers
 {
-    [Authorize]
+   
     [RoutePrefix("api/customers")]
     public class CustomersController : ApiController
     {
