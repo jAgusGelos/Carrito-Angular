@@ -11,7 +11,7 @@ namespace Carrito_Angular_Backend
     public static class WebApiConfig
     {
 
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
+      
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de API web
@@ -21,7 +21,7 @@ namespace Carrito_Angular_Backend
             config.EnableCors(corsAttr);
             // Rutas de API web
             config.MapHttpAttributeRoutes();
-            config.MessageHandlers.Add(new TokenValidationHandler());
+            
 
 
             config.Routes.MapHttpRoute(

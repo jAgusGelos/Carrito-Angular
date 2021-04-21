@@ -9,7 +9,7 @@ using CarritoDatos;
 
 namespace Carrito_Angular_Backend.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+  
     public class CarritoController : ApiController
     {
         [System.Web.Http.AcceptVerbs("DELETE")]

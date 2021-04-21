@@ -13,7 +13,7 @@ import { ProductosService } from 'src/app/services/productos.service';
 export class ProductosComponent implements OnInit {
 
 
-  columnsNames = ["id", "name", "year", "color", "pantone_value"];
+  columnsNames = ["idArticulo","nombre","descripcion","precio"];
   columnsValues: Producto[];
   cart: Cart;
 

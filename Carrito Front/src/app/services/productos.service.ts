@@ -13,7 +13,8 @@ export class ProductosService {
   constructor(private httpClient: HttpClient) {  }
 
   get(){
-    //return  this.httpClient.get('https://localhost:44309/api/productos')
+    return  this.httpClient.get('https://localhost:44309/api/productos')
+    //return  this.httpClient.get('api/productos')
     return of(mockProducts);
   }
 
