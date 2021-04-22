@@ -14,7 +14,7 @@ export class TableComponent implements OnInit {
 
   @Input() columnsName: string[];
   @Input() columnsValue: any[];
-  @Output() addItemEvent = new EventEmitter<any>();
+  @Output() addItemEvent = new EventEmitter<any[]>();
   @Output() deleteItemEvent = new EventEmitter<any>();
 
 
@@ -41,9 +41,10 @@ export class TableComponent implements OnInit {
       return;
 
     }
+    
 
-    let params = [item, quant];
-    this.addItemEvent.emit(params);
+    // let params = [item, quant];
+    this.addItemEvent.emit([item,quant]);
   }
 
   trashButtonClicked(item: any) {
