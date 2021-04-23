@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Producto } from 'src/app/models/productos';
 import { ProductosService } from 'src/app/services/productos.service';
 
@@ -16,12 +17,12 @@ export class ProdCreationComponent implements OnInit {
 
   constructor(
     private productosService: ProductosService,
-    public formBuilder : FormBuilder
+    public formBuilder : FormBuilder,
+    private route: Router,
     ) { }
 
   ngOnInit(): void {
-    this.FormReg.reset(this.FormReg.value)
-
+    
     this.FormReg = this.formBuilder.group(
       {
         nombreProd: ['',[Validators.required,Validators.minLength(2), Validators.maxLength(100)]],
@@ -46,6 +47,7 @@ export class ProdCreationComponent implements OnInit {
     this.Prod.precio = this.FormReg.value.precioProd;
 
     this.productosService.post(this.Prod).subscribe((res: any) => {
+      alert('Carga Completada');
       this.FormReg.reset();
     })
 
@@ -53,7 +55,7 @@ export class ProdCreationComponent implements OnInit {
   }
 
   volver(){
-    //ir a tabla. backtoprevious route
+    this.route.navigateByUrl('productos');
   }
 
 

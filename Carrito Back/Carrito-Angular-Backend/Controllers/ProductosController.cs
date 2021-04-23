@@ -20,9 +20,9 @@ namespace Carrito_Angular_Backend.Controllers
         }
 
         // GET: api/Productos/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            return Ok(GestionProductos.searchOne(id));
         }
 
         // POST: api/Productos
@@ -37,8 +37,24 @@ namespace Carrito_Angular_Backend.Controllers
         }
 
         // DELETE: api/Productos/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            HttpResponseMessage msg;
+            try
+            {
+                GestionProductos.eliminarItem(id);
+                msg = Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception e)
+            {
+                msg = Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e.Message);
+
+            }
+
+            return msg;
+
+
+
         }
     }
 }

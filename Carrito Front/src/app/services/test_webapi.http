@@ -21,4 +21,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Imp1YW5h
 
 ###
 
-get https://localhost:44309/api/productos
+get https://localhost:44309/api/productos/2
+
+###
+
+delete https://localhost:44309/api/productos/2

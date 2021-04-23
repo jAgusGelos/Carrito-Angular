@@ -45,6 +45,8 @@ export class TableComponent implements OnInit {
 
     // let params = [item, quant];
     this.addItemEvent.emit([item,quant]);
+
+    // Para hacerlo más util hago un objeto res o otro event emiter?
   }
 
   trashButtonClicked(item: any) {

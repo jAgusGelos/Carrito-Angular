@@ -18,6 +18,16 @@ namespace CarritoDatos
             }
         }
 
+        public static productos searchOne(int id)
+        {
+            using (CarritoEntities1 db = new CarritoEntities1())
+            {
+                return db.productos.Find(id);
+
+
+            }
+        }
+
         public static void Grabar(productos prod)
         {
             try
@@ -35,6 +45,25 @@ namespace CarritoDatos
             
         }
 
-        
+        public static void eliminarItem(int idArticulo)
+        {
+            try
+            {
+                using (CarritoEntities1 db = new CarritoEntities1())
+                {
+                    var prod = db.productos.Find(idArticulo);                                
+                    db.productos.Remove(prod);
+                    db.SaveChanges();
+                   
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException("Error al Borrar el elemento: " + idArticulo.ToString());
+            }
+
+        }
+
+
     }
 }

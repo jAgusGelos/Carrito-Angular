@@ -27,10 +27,6 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
     this.getProductos();
 
-
-
-
-
   }
 
 
@@ -58,7 +54,8 @@ export class ProductosComponent implements OnInit {
 
 
   deleteProduct(prod: Producto){
-    this.productosService.delete(prod).subscribe((res:any) => alert('Success'))
+    this.productosService.delete(prod).subscribe((res:any) => alert('Success'));
+    this.getProductos();
 
   }
 
