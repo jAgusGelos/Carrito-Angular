@@ -42,7 +42,7 @@ export class ClientesComponent implements OnInit {
     //error => this.manejarError(error));
     this.authService.login(this.usuario).subscribe( (data: any) =>{ 
       this.authService.setToken(data.token)
-      this.router.navigateByUrl('productos')
+      this.router.navigateByUrl('carrito')
     
     })
 

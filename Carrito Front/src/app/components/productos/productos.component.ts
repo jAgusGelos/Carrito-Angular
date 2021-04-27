@@ -36,18 +36,26 @@ export class ProductosComponent implements OnInit {
 
   }
 
-  addProduct(params: any[]) {
-    // HARCODEADO -- REVISAR MAÑANA
-    let producto = params[0];
-    let cant = params[1];
+  addProduct(params: any) {
+    let producto = params.item;
+    let quant = params.quant;
 
-    this.cart = new Cart();
-    this.cart.NroFactura = 2;
-    this.cart.NroItem = 0;
-    this.cart.codProd = producto.idArticulo;
-    this.cart.cantProd = cant;
+    // this.cart = new Cart();
+    // this.cart.NroFactura = 2;
+    // this.cart.NroItem = 0;
+    // this.cart.codProd = producto.idArticulo;
+    // this.cart.cantProd = cant;
+
+
+    //-----------Version JAVASCRIPT -------------------- 1 sola instrucción
+    this.cart = {
+      NroFactura:2,
+      NroItem: 0,
+      codProd: producto.idArticulo,
+      cantProd: quant
+    }
     console.log(this.cart);
-    this.carritoService.post(this.cart).subscribe((res:any) => alert('Se ha cargado el articulo correctamente.' + res));
+    this.carritoService.post(this.cart).subscribe((res:any) => alert('Se ha cargado el articulo correctamente.'+producto.nombre));
     ;
 
   }

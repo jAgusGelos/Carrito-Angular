@@ -18,18 +18,33 @@ export class CarritoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCarrito();
+
+    
   }
 
   getCarrito(){
-    this.carritoService.get().subscribe((res: ItemCarrito[]) =>  this.Items = res );
+    this.carritoService.get().subscribe((res: ItemCarrito[]) =>  {
+      this.Items = res;
+      this.getTotal();
+    }
+   );   
+  }
   
+  getTotal(){
+    // Este codigo seguro puede mejorar 
+    let acu = 0;
+    console.log(this.Items)
+    for (let i = 0; i < this.Items.length; i++)  {
+      acu += this.Items[i].Total;
+    }
+    console.log(acu);
+    document.getElementById('precio').innerText = acu.toString();
+
   }
 
   quitarProducto(prod){
     console.log(prod);
-    this.carritoService.delete(prod.NroFactura, prod.NroItem).subscribe();
-    this.getCarrito();
-    
+    this.carritoService.delete(prod.NroFactura, prod.NroItem).subscribe(res => this.getCarrito());      
   }
 
 }

@@ -12,3 +12,13 @@ Camelcase - kebabCase - SnakeCase
 21/04
 
 Get Tiene que ir desde el parent con @input
+
+
+--------------
+27/04
+bloquear el carrito no los prods
+revisar total $
+revisar botones en carrito.
+prod cant --> 0
+Agregar --> Acciones --> Agregar editar (lapiz). Cambia el 0 por un input y el lapiz por un guardar
+que quede el valor --> Que sea linea a linea. Solo para una linea.

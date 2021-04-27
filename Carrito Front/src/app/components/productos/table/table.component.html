@@ -15,11 +15,15 @@
           <!-- <td>{{producto.nombre}}</td>
           <td>{{producto.descripcion}}</td>
           <td>$ {{producto.precio}}</td> -->
-          <td><input type="number" class='text-center' #quant min="1" max="100"></td> 
+          <td><input type="number" class='text-center' #quant min="1" max="100" *ngIf='editMode'>
+          <label for="quant" *ngIf='!editMode'>0</label></td> 
           <td> 
             <a (click)='addButtonClicked(item,quant.value)'> <i class="fas fa-plus"></i></a>
             &nbsp;            
             <a (click)='trashButtonClicked(item)'> <i class="fas fa-trash"></i></a>
+            &nbsp;
+            <a (click)='toggleEditMode()' *ngIf='!editMode'> <i class="fas fa-edit"></i></a>
+            <a (click)='toggleSaveMode(quant.value)'*ngIf='editMode'> <i class="fas fa-save"></i></a>
           </td>
           <td></td>
         </tr>

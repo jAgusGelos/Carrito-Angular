@@ -14,8 +14,9 @@ export class TableComponent implements OnInit {
 
   @Input() columnsName: string[];
   @Input() columnsValue: any[];
-  @Output() addItemEvent = new EventEmitter<any[]>();
+  @Output() addItemEvent = new EventEmitter<any>();
   @Output() deleteItemEvent = new EventEmitter<any>();
+  editMode: boolean = false;
 
 
 
@@ -41,10 +42,12 @@ export class TableComponent implements OnInit {
       return;
 
     }
+    let params = {item, quant};
+
     
 
     // let params = [item, quant];
-    this.addItemEvent.emit([item,quant]);
+    this.addItemEvent.emit(params);
 
     // Para hacerlo más util hago un objeto res o otro event emiter?
   }
@@ -53,5 +56,17 @@ export class TableComponent implements OnInit {
     if (confirm("Está seguro que desea borrar?")) {
       this.deleteItemEvent.emit(item);
     }
+  }
+
+  toggleEditMode(){
+    this.editMode = !this.editMode;
+
+  }
+
+  toggleSaveMode(quant: number){
+    this.editMode = !this.editMode;
+    let valueQuant = document.getElementById('quant').innerHTML = quant.toString(); 
+
+
   }
 }
