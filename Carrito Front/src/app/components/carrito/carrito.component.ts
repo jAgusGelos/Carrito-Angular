@@ -47,7 +47,13 @@ export class CarritoComponent implements OnInit {
   }
 
   limpiarCarrito(){
-    // this.carritoService.get().subscribe((res:ItemCarrito[]))
+    this.carritoService.get().subscribe((res:ItemCarrito[]) =>{
+      res.forEach((item) => this.quitarProducto(item))
+    })
+  }
+
+  meLoLlevo(){
+    this.
   }
 
 }
