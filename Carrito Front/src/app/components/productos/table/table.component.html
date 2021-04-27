@@ -3,27 +3,26 @@
     <table class="table text-center ">
       <thead>
         <h5>Tabla</h5>
-        <tr>      
+        <tr>
           <th *ngFor='let name of columnsName'>{{ name | titlecase }}</th>
-          <th>Cantidad</th>  
-          <th>Agregar</th>          
+          <th>Cantidad</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody id="genTable">
-        <tr *ngFor='let item of columnsValue'>          
+        <tr *ngFor='let item of columnsValue'>
           <td *ngFor='let name of columnsName'>{{item[name]}}</td>
-          <!-- <td>{{producto.nombre}}</td>
-          <td>{{producto.descripcion}}</td>
-          <td>$ {{producto.precio}}</td> -->
-          <td><input type="number" class='text-center' #quant min="1" max="100" *ngIf='editMode'>
-          <label for="quant" *ngIf='!editMode'>0</label></td> 
-          <td> 
+
+          <td><input type="number" class='text-center' [value]='item.quant || 0' min="1" max="100" *ngIf='editMode && item.editing'>
+            <label for="quant" *ngIf='!editMode' >{{item.quant || 0}}</label>
+          </td>
+          <td>
             <a (click)='addButtonClicked(item,quant.value)'> <i class="fas fa-plus"></i></a>
-            &nbsp;            
+            &nbsp;
             <a (click)='trashButtonClicked(item)'> <i class="fas fa-trash"></i></a>
             &nbsp;
-            <a (click)='toggleEditMode()' *ngIf='!editMode'> <i class="fas fa-edit"></i></a>
-            <a (click)='toggleSaveMode(quant.value)'*ngIf='editMode'> <i class="fas fa-save"></i></a>
+            <a (click)='toggleEditMode(item.idArticulo)' *ngIf='!editMode'> <i class="fas fa-edit"></i></a>
+            <a (click)='toggleSaveMode(item.idArticulo, $event )' *ngIf='editMode'> <i class="fas fa-save"></i></a>
           </td>
           <td></td>
         </tr>

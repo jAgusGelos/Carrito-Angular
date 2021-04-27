@@ -13,6 +13,7 @@ export class CarritoComponent implements OnInit {
 
 
   Items: ItemCarrito[];
+  acu: number = 0;
 
   constructor(private carritoService: CarritoService) { }
 
@@ -31,20 +32,22 @@ export class CarritoComponent implements OnInit {
   }
   
   getTotal(){
-    // Este codigo seguro puede mejorar 
-    let acu = 0;
-    console.log(this.Items)
-    for (let i = 0; i < this.Items.length; i++)  {
-      acu += this.Items[i].Total;
-    }
-    console.log(acu);
-    document.getElementById('precio').innerText = acu.toString();
-
+    // Este codigo seguro puede mejorar    
+    // for (let i = 0; i < this.Items.length; i++)  {
+    //   this.acu += this.Items[i].Total;
+    // }
+    this.Items.forEach((item) => {
+      this.acu += item.Total;
+    })
   }
 
   quitarProducto(prod){
     console.log(prod);
     this.carritoService.delete(prod.NroFactura, prod.NroItem).subscribe(res => this.getCarrito());      
+  }
+
+  limpiarCarrito(){
+    // this.carritoService.get().subscribe((res:ItemCarrito[]))
   }
 
 }

@@ -16,8 +16,8 @@ Get Tiene que ir desde el parent con @input
 
 --------------
 27/04
-bloquear el carrito no los prods
-revisar total $
+bloquear el carrito no los prods D
+revisar total $ D
 revisar botones en carrito.
 prod cant --> 0
 Agregar --> Acciones --> Agregar editar (lapiz). Cambia el 0 por un input y el lapiz por un guardar

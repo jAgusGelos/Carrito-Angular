@@ -30,6 +30,9 @@ export class TableComponent implements OnInit {
 
 
   }
+  ngOnChanges(): void{
+    console.log(this.columnsValue);
+  }
 
 
 
@@ -58,14 +61,35 @@ export class TableComponent implements OnInit {
     }
   }
 
-  toggleEditMode(){
+  toggleEditMode(id: number){
+
     this.editMode = !this.editMode;
+    this.columnsValue = this.columnsValue.map((item) => {
+      if (item.idArticulo === id){
+        item.editing = true;
+        return item;
+      }
+      return item;
+    })
+    console.log(this.columnsValue);
 
   }
 
-  toggleSaveMode(quant: number){
+  toggleSaveMode(id: number, quant: any){
+    console.log(quant)
     this.editMode = !this.editMode;
-    let valueQuant = document.getElementById('quant').innerHTML = quant.toString(); 
+ 
+
+    this.columnsValue = this.columnsValue.map((item) => {
+      if (item.idArticulo === id){
+        item.editing = false;
+        item.quant = quant;
+        return item;
+      }
+      return item;
+    })
+    console.log(this.columnsValue);
+    
 
 
   }

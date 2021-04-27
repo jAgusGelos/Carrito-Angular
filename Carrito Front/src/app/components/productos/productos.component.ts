@@ -64,8 +64,9 @@ export class ProductosComponent implements OnInit {
   deleteProduct(prod: Producto){
     this.productosService.delete(prod).subscribe((res:any) => alert('Success'));
     this.getProductos();
-
   }
+
+  
 
 
 
