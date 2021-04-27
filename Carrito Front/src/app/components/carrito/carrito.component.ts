@@ -53,7 +53,7 @@ export class CarritoComponent implements OnInit {
   }
 
   meLoLlevo(){
-    this.
+  
   }
 
 }
