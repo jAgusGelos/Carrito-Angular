@@ -37,8 +37,8 @@ export class ProductosComponent implements OnInit {
   }
 
   addProduct(params: any) {
-    let producto = params.item;
-    let quant = params.quant;
+    let producto = params;
+    
 
     // this.cart = new Cart();
     // this.cart.NroFactura = 2;
@@ -52,7 +52,7 @@ export class ProductosComponent implements OnInit {
       NroFactura:2,
       NroItem: 0,
       codProd: producto.idArticulo,
-      cantProd: quant
+      cantProd: producto.quant
     }
     console.log(this.cart);
     this.carritoService.post(this.cart).subscribe((res:any) => alert('Se ha cargado el articulo correctamente.'+producto.nombre));

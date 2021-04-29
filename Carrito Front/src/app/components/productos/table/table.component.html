@@ -13,16 +13,17 @@
         <tr *ngFor='let item of columnsValue'>
           <td *ngFor='let name of columnsName'>{{item[name]}}</td>
 
-          <td><input type="number" class='text-center' [value]='item.quant || 0' min="1" max="100" *ngIf='editMode && item.editing'>
-            <label for="quant" *ngIf='!editMode' >{{item.quant || 0}}</label>
+          <td><input type="number" class='text-center' [(ngModel)]='item.quant' min="1" max="100"
+              *ngIf='item.editing' >
+            <label for="quant" *ngIf='!item.editing'>{{item.quant || 0}}</label>
           </td>
           <td>
-            <a (click)='addButtonClicked(item,quant.value)'> <i class="fas fa-plus"></i></a>
+            <a (click)='addButtonClicked(item)'> <i class="fas fa-plus"></i></a>
             &nbsp;
             <a (click)='trashButtonClicked(item)'> <i class="fas fa-trash"></i></a>
             &nbsp;
-            <a (click)='toggleEditMode(item.idArticulo)' *ngIf='!editMode'> <i class="fas fa-edit"></i></a>
-            <a (click)='toggleSaveMode(item.idArticulo, $event )' *ngIf='editMode'> <i class="fas fa-save"></i></a>
+            <a (click)='toggleEditMode(item.idArticulo)' *ngIf='!item.editing'> <i class="fas fa-edit"></i></a>
+            <a (click)='toggleSaveMode(item.idArticulo)' *ngIf='item.editing'> <i class="fas fa-save"></i></a>
           </td>
           <td></td>
         </tr>

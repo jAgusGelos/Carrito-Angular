@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarritoService } from 'src/app/services/carrito.service';
 import {ItemCarrito} from '../../models/carrito';
 import * as $ from "jquery";
+import { BillService } from 'src/app/services/bill.service';
 
 
 @Component({
@@ -15,7 +16,9 @@ export class CarritoComponent implements OnInit {
   Items: ItemCarrito[];
   acu: number = 0;
 
-  constructor(private carritoService: CarritoService) { }
+  constructor(
+    private carritoService: CarritoService,
+    private billService: BillService) { }
 
   ngOnInit(): void {
     this.getCarrito();
@@ -53,6 +56,7 @@ export class CarritoComponent implements OnInit {
   }
 
   meLoLlevo(){
+
   
   }
 
