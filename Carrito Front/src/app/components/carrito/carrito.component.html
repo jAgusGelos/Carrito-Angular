@@ -1,32 +1,7 @@
-<div class="col-md-12">
-    <table class="table text-center">
-        <thead>
-            <h2>Carrito</h2>
-            <tr>
-             
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Subtotal</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="tablaCarrito">
-           
-            <tr *ngFor='let producto of Items' >
-                <td >{{producto.Nombre}}</td>
-                <td>{{producto.Descripcion}}</td>
-                <td>$ {{producto.Precio}}</td>
-                <td>{{producto.Cantidad}}</td>     
-                <td>$ {{producto.Total}}</td>           
-                <td><a (click)='quitarProducto(producto)' href='/carrito'><i class="fas fa-trash-alt"></i></a></td>
-            </tr>
-        </tbody>
-    </table>
-    <label>Total: $</label>
-    <label id='precio' >{{acu}}</label>
-</div>
+<!-- <app-header [titulo] = 'title'></app-header> -->
+
+<app-carrito-table [columnNames]='columnNames' [columnValues]='columnValues'
+(deleteItemEvent)='deleteProduct($event)'></app-carrito-table>
 
 <div class="row">
 <div class="text-center col-sm-6">

@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [title] = 'title'></app-header>
 <app-table [columnsName]='columnsNames' [columnsValue]='columnsValues' (addItemEvent)='addProduct($event)'
   (deleteItemEvent)='deleteProduct($event)'></app-table>
 

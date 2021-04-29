@@ -10,48 +10,42 @@ import { BillService } from 'src/app/services/bill.service';
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css']
 })
+
+
 export class CarritoComponent implements OnInit {
 
-
+  columnNames: string[] = ['Nombre','Descripcion', 'Precio', 'Cantidad', 'Total' ]; 
+  columnValues: any[];  
   Items: ItemCarrito[];
   acu: number = 0;
+
 
   constructor(
     private carritoService: CarritoService,
     private billService: BillService) { }
 
   ngOnInit(): void {
-    this.getCarrito();
-
-    
+    this.getCarrito(); 
   }
 
   getCarrito(){
     this.carritoService.get().subscribe((res: ItemCarrito[]) =>  {
-      this.Items = res;
-      this.getTotal();
+      this.columnValues = res;
+      
     }
    );   
   }
   
-  getTotal(){
-    // Este codigo seguro puede mejorar    
-    // for (let i = 0; i < this.Items.length; i++)  {
-    //   this.acu += this.Items[i].Total;
-    // }
-    this.Items.forEach((item) => {
-      this.acu += item.Total;
-    })
-  }
 
-  quitarProducto(prod){
+
+  deleteProduct(prod){
     console.log(prod);
     this.carritoService.delete(prod.NroFactura, prod.NroItem).subscribe(res => this.getCarrito());      
   }
 
   limpiarCarrito(){
     this.carritoService.get().subscribe((res:ItemCarrito[]) =>{
-      res.forEach((item) => this.quitarProducto(item))
+      res.forEach((item) => this.deleteProduct(item))
     })
   }
 

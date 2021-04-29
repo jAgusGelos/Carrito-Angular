@@ -16,6 +16,7 @@ export class ProductosComponent implements OnInit {
   columnsNames = ["idArticulo","nombre","descripcion","precio"];
   columnsValues: Producto[];
   cart: Cart;
+  title: string = 'Productos';
 
 
 

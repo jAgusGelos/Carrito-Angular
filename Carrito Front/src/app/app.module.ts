@@ -29,10 +29,7 @@ import { AuthGuard } from './guards/auth.guard';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-   
-    
-    
+    ReactiveFormsModule,   
     routing
   ],
   providers: [AuthGuardService, CookieService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],

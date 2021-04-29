@@ -1,0 +1,29 @@
+<div class="col-md-12">
+  <table class="table text-center">
+    <thead>
+      <h2>Carrito</h2>
+      <tr>
+
+        <th *ngFor='let name of columnNames'>{{name | titlecase}}</th>
+        <th>Acciones</th>
+
+      </tr>
+    </thead>
+    <tbody id="tablaCarrito">
+
+      <tr *ngFor='let item of columnValues'>
+        <td *ngFor='let name of columnNames'>{{item[name]}}</td>
+        
+        <td>
+          <a (click)='toggleRemoveMode(item)'><i class="fas fa-trash-alt"></i></a>
+          &nbsp;
+          <a (click)='toggleEditMode(item.NroItem)' *ngIf='!item.editing'> <i class="fas fa-edit"></i></a>
+          <a (click)='toggleSaveMode(item.NroItem)' *ngIf='item.editing'> <i class="fas fa-save"></i></a>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <label>Total: $</label>
+  <label id='precio'>{{acu}}</label>
+</div>
