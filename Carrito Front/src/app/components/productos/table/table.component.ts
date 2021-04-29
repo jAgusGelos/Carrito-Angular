@@ -30,29 +30,21 @@ export class TableComponent implements OnInit {
 
 
   }
-  ngOnChanges(): void{
+  ngOnChanges(): void {
     console.log(this.columnsValue);
   }
 
 
 
-  addButtonClicked(item: any, quant: number) {
-
- 
-    console.log(quant);
-    if (quant == 0) {
+  addButtonClicked(item: any) {
+    // -------------------- Duda ------------ >> A donde pongo esta comprobación?.
+    if (item.quant == 0) {
       alert("Ingrese una cantidad");
       return;
-
     }
-    let params = {item, quant};
-
     
+    this.addItemEvent.emit(item);
 
-    // let params = [item, quant];
-    this.addItemEvent.emit(params);
-
-    // Para hacerlo más util hago un objeto res o otro event emiter?
   }
 
   trashButtonClicked(item: any) {
@@ -61,11 +53,9 @@ export class TableComponent implements OnInit {
     }
   }
 
-  toggleEditMode(id: number){
-
-    this.editMode = !this.editMode;
+  toggleEditMode(id: number) {    
     this.columnsValue = this.columnsValue.map((item) => {
-      if (item.idArticulo === id){
+      if (item.idArticulo === id) {
         item.editing = true;
         return item;
       }
@@ -75,21 +65,18 @@ export class TableComponent implements OnInit {
 
   }
 
-  toggleSaveMode(id: number, quant: any){
-    console.log(quant)
-    this.editMode = !this.editMode;
- 
+  toggleSaveMode(id: number) {   
 
     this.columnsValue = this.columnsValue.map((item) => {
-      if (item.idArticulo === id){
+      if (item.idArticulo === id) {
+        console.log(item.quant)
         item.editing = false;
-        item.quant = quant;
         return item;
       }
       return item;
     })
-    console.log(this.columnsValue);
-    
+
+
 
 
   }
