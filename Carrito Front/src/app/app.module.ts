@@ -15,13 +15,17 @@ import { AccountService } from './services/account.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { BibliografiaComponent } from './components/bibliografia/bibliografia.component';
 import { CookieService } from 'ngx-cookie-service';
-import { AuthGuard } from './guards/auth.guard';
+import { CarritoDialogComponent } from './components/dialogs/carrito-dialog/carrito-dialog.component';
+
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
       BibliografiaComponent,
-
+      CarritoDialogComponent,
     
   ],
   imports: [
@@ -30,7 +34,9 @@ import { AuthGuard } from './guards/auth.guard';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,   
-    routing
+    routing,
+    
+    
   ],
   providers: [AuthGuardService, CookieService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
