@@ -13,7 +13,8 @@
         <tr *ngFor='let item of columnsValue'>
           <td *ngFor='let name of columnsName'>{{item[name]}}</td>
 
-          <td><input type="number" class='text-center' [(ngModel)]='item.quant' min="1" max="100"
+          <td>
+            <input type="number" class='text-center' [(ngModel)]='item.quant' min="1" max="100"
               *ngIf='item.editing' >
             <label for="quant" *ngIf='!item.editing'>{{item.quant || 0}}</label>
           </td>

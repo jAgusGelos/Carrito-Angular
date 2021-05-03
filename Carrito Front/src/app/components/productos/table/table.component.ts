@@ -35,10 +35,8 @@ export class TableComponent implements OnInit {
     if (item.quant == 0 || item.quant == undefined) {
       alert("Ingrese una cantidad");
       return;
-    }
-    
+    }    
     this.addItemEvent.emit(item);
-
   }
 
   trashButtonClicked(item: any) {

@@ -39,8 +39,12 @@ export class CarritoComponent implements OnInit {
 
 
   deleteProduct(prod){
-    console.log(prod);
+    
     this.carritoService.delete(prod.NroFactura, prod.NroItem).subscribe(res => this.getCarrito());      
+  }
+
+  modifyProduct(prod){
+    console.log(prod);
   }
 
   limpiarCarrito(){

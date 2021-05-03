@@ -11,6 +11,7 @@ export class CarritoTableComponent implements OnInit {
   @Input() columnNames: string[];
   @Input() columnValues: any[];
   @Output() deleteItemEvent = new EventEmitter<any>();
+  @Output() putItemEvent = new EventEmitter<any>();
   acu: number = 0;
   constructor() { }
 
@@ -43,17 +44,20 @@ export class CarritoTableComponent implements OnInit {
       }
       return item;
     })
-    console.log(this.columnValues);
-
   }
 
-  toggleSaveMode(id: number) {
-    this.columnValues = this.columnValues.map((item) => {
-      if (item.NroItem === id) {
-        item.editing = false;
+  toggleSaveMode(item: any) {
+    console.log(item)
+    this.columnValues = this.columnValues.map((items) => {
+      if (items.NroItem === item.NroItem) {
+        items.editing = false;        
       }
-      return item;
+      return items;
     })
+    // this.putItemEvent.emit(this.columnValues.find(items => (items.NroItem === item.NroItem) ));
+  
+
+
 
   }
 }
