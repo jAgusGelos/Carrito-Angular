@@ -5,7 +5,44 @@
 
 <div class="row">
 <div class="text-center col-sm-6">
-    <button type="submit" class="btn btn-primary col-sm-3" id='comprar' (click)="meLoLlevo()" >Me lo llevo</button>
-    <button type="submit" class="btn btn-secondary col-sm-3" id='cancelar' (click)="limpiarCarrito()">Limpiar Todo</button>
+    <button type="button" class="btn btn-primary col-sm-3" id='comprar' (click)='meLoLlevo(content)' >Me lo llevo</button>
+    &nbsp;
+    <button type="button" class="btn btn-secondary col-sm-3" id='cancelar' (click)="limpiarCarrito()">Limpiar Todo</button>
 </div>
 </div>
+
+
+
+
+<!-- Agregar un div nuevo con el modal oculto; Cuando lo presento lo muestro en un OVERLAY Z index-->
+<!-- <div class="modal fade" tabindex="-1" id='buyItModal' role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">¿Seguro que desea realizar la compra?</h5>        
+        </div>
+        <div class="modal-body">
+          <p>El monto a pagar es de  $ </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Lo quiero!</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+  
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">¿Seguro que desea realizar la compra?</h4>
+      
+    </div>
+    <div class="modal-body">
+      <p>El monto a pagar es {{acu}}&hellip;</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    </div>
+  </ng-template>

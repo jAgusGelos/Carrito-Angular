@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-carrito-table',
@@ -48,6 +49,7 @@ export class CarritoTableComponent implements OnInit {
 
   toggleSaveMode(item: any) {
     console.log(item)
+    
     this.columnValues = this.columnValues.map((items) => {
       if (items.NroItem === item.NroItem) {
         items.editing = false;        

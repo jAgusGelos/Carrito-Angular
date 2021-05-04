@@ -7,10 +7,15 @@ import { CarritoTableComponent } from './carrito-table/carrito-table.component';
 
 
 
+
+
 @NgModule({
   imports: [
     CommonModule,
     CarritoRoutingModule,
+   
+    
+    
 
 
     

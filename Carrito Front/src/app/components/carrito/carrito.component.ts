@@ -3,6 +3,7 @@ import { CarritoService } from 'src/app/services/carrito.service';
 import {ItemCarrito} from '../../models/carrito';
 import * as $ from "jquery";
 import { BillService } from 'src/app/services/bill.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -22,7 +23,9 @@ export class CarritoComponent implements OnInit {
 
   constructor(
     private carritoService: CarritoService,
-    private billService: BillService) { }
+    private billService: BillService,
+    private modalService: NgbModal
+     ) { }
 
   ngOnInit(): void {
     this.getCarrito(); 
@@ -53,9 +56,11 @@ export class CarritoComponent implements OnInit {
     })
   }
 
-  meLoLlevo(){
-
+  meLoLlevo(content){
+    this.modalService.open(content, { centered: true });
   
   }
+
+  
 
 }
